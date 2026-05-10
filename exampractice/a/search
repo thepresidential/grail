@@ -1,0 +1,28 @@
+DECLARE names : ARRAY
+DECLARE times : ARRAY
+
+names ← []
+times ← []
+
+FOR i ← 1 TO 5
+    OUTPUT "Enter runner name: "
+    INPUT name
+    APPEND names, name
+
+    OUTPUT "Enter time: "
+    INPUT time
+    APPEND times, time
+NEXT i
+
+fastestTime ← times[0]
+fastestName ← names[0]
+
+FOR i ← 1 TO LENGTH(times) - 1
+    IF times[i] < fastestTime THEN
+        fastestTime ← times[i]
+        fastestName ← names[i]
+    ENDIF
+NEXT i
+
+OUTPUT "Winner: ", fastestName
+OUTPUT "Time: ", fastestTime

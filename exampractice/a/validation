@@ -1,0 +1,31 @@
+DECLARE numbers : ARRAY
+numbers ← []
+
+count ← 0
+
+REPEAT
+    OUTPUT "Enter a number between 1 and 100 (or -1 to stop): "
+    INPUT num
+
+    IF num ≠ -1 THEN
+        IF num >= 1 AND num <= 100 THEN
+            APPEND numbers, num
+            count ← count + 1
+        ELSE
+            OUTPUT "Invalid number"
+        ENDIF
+    ENDIF
+UNTIL num = -1
+
+total ← 0
+
+FOR i ← 0 TO LENGTH(numbers) - 1
+    total ← total + numbers[i]
+NEXT i
+
+IF count > 0 THEN
+    average ← total / count
+    OUTPUT "Average: ", average
+ELSE
+    OUTPUT "No valid numbers entered"
+ENDIF

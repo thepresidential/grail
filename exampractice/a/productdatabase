@@ -1,0 +1,44 @@
+DECLARE products : ARRAY
+DECLARE prices : ARRAY
+
+products ← []
+prices ← []
+
+REPEAT
+    OUTPUT "Enter product name (or STOP to finish): "
+    INPUT name
+
+    IF name ≠ "STOP" THEN
+        APPEND products, name
+
+        OUTPUT "Enter price: "
+        INPUT price
+        APPEND prices, price
+    ENDIF
+UNTIL name = "STOP"
+
+OUTPUT "Enter product to search for: "
+INPUT searchName
+
+found ← FALSE
+
+FOR i ← 0 TO LENGTH(products) - 1
+    IF products[i] = searchName THEN
+        OUTPUT "Price: ", prices[i]
+        found ← TRUE
+    ENDIF
+NEXT i
+
+IF found = FALSE THEN
+    OUTPUT "Product not found"
+ENDIF
+
+total ← 0
+
+FOR i ← 0 TO LENGTH(prices) - 1
+    total ← total + prices[i]
+NEXT i
+
+average ← total / LENGTH(prices)
+
+OUTPUT "Average price: ", average

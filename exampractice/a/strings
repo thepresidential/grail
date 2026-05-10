@@ -1,0 +1,18 @@
+OUTPUT "Enter a word: "
+INPUT word
+
+vowels ← 0
+consonants ← 0
+
+FOR i ← 0 TO LENGTH(word) - 1
+    letter ← word[i]
+
+    IF letter = "a" OR letter = "e" OR letter = "i" OR letter = "o" OR letter = "u" THEN
+        vowels ← vowels + 1
+    ELSE
+        consonants ← consonants + 1
+    ENDIF
+NEXT i
+
+OUTPUT "Vowels: ", vowels
+OUTPUT "Consonants: ", consonants
